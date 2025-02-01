@@ -148,31 +148,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332a2c614acb8814a8ce663f77e0c02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ZoomSpeed: 20
-  _ZoomRange: {x: 0, y: 200}
-  _BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  _Camera_ZoomSpeed: 20
+  _Camera_ZoomRange: {x: 10, y: 200}
+  _Camera_MoveSpeed: 50
+  _BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   _DisplayNoiseMap: 1
-  _NoiseMapXPosition: 35
-  _NoiseMapZPosition: 47
-  _NoiseMapSize: 15
+  _NoiseMapXPosition: 84
+  _NoiseMapZPosition: 95
+  _NoiseMapSize: 22
   _GenerateGrid: 0
-  _GridWidth: 75
-  _GridHeight: 32
-  _Value_WaterDeep: 0.235
+  _GridWidth: 200
+  _GridHeight: 65
+  _Value_WaterDeep: 0.415
   _Color_WaterDeeps: {r: 0, g: 0.030353535, b: 0.33962262, a: 0}
-  _Value_Water: 0.306
+  _Value_Water: 0.642
   _Color_Water: {r: 0, g: 0.3568212, b: 0.6933962, a: 0}
-  _Value_Sand: 0.382
+  _Value_Sand: 0.669
   _Color_Sand: {r: 0.9103774, g: 0.75348717, b: 0.30059633, a: 0}
-  _Value_Meadow: 0.479
-  _Color_Meadow: {r: 0.63039863, g: 0.995283, b: 0.3755785, a: 0}
-  _Value_Forest: 0.62
+  _Value_Meadow: 0.702
+  _Color_Meadow: {r: 0.33295804, g: 0.9009434, b: 0.3102305, a: 0}
+  _Value_Forest: 0.774
   _Color_Forest: {r: 0.01705513, g: 0.6367924, b: 0, a: 0}
-  _Value_Mountains: 0.714
+  _Value_Mountains: 1
   _Color_Moutains: {r: 0.759434, g: 0.33801752, b: 0, a: 0}
-  _Value_Lava: 0.748
+  _Value_Lava: 0
   _Color_Lava: {r: 1, g: 0, b: 0, a: 0}
-  _Value_Volcano: 1
+  _Value_Volcano: 0
   _Color_Volcano: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &151274251
 Transform:

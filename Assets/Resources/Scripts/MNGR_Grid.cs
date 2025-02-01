@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class MNGR_Grid : MonoBehaviour
 {
-    public float _ZoomSpeed;
-    public Vector2 _ZoomRange;
+    public float _Camera_ZoomSpeed;
+    public Vector2 _Camera_ZoomRange;
+    public float _Camera_MoveSpeed;
 
     [Header("NoiseMap controler")]
         public Color _BackGroundColor;
         public bool _DisplayNoiseMap;
-        [Range(-100, 100)] public float _NoiseMapXPosition;
-        [Range(-100, 100)] public float _NoiseMapZPosition;
+        [Range(-150, 150)] public float _NoiseMapXPosition;
+        [Range(-150, 150)] public float _NoiseMapZPosition;
         [Range(0, 100)] public float _NoiseMapSize;
         Transform _NoiseMap;
         
 
     [Header("Grid parameters")]
         public bool _GenerateGrid;
-        [Range(1, 100)] public int _GridWidth;
-        [Range(1, 100)] public int _GridHeight;
+        [Range(1, 200)] public int _GridWidth;
+        [Range(1, 200)] public int _GridHeight;
         GameObject _Model_Hex;
         Material _MAT_Hex;
     
@@ -51,7 +52,7 @@ public class MNGR_Grid : MonoBehaviour
 
     void Update()
     {
-        Zoom_Camera();
+        Update_Camera();
         Update_NoiseMap();
 
         if (_GenerateGrid == true)
@@ -63,17 +64,31 @@ public class MNGR_Grid : MonoBehaviour
     /// <summary>
     /// Manage camera zoom with mousewheel
     /// </summary>
-    void Zoom_Camera()
+    void Update_Camera()
     {
+        // Manage zoom
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
-
         if (scrollInput != 0f)
         {
-            float _PosY = Camera.main.transform.position.y - scrollInput * _ZoomSpeed;
-            _PosY = Mathf.Clamp(_PosY, _ZoomRange.x, _ZoomRange.y);
+            float _PosY = Camera.main.transform.position.y - scrollInput * _Camera_ZoomSpeed;
+            _PosY = Mathf.Clamp(_PosY, _Camera_ZoomRange.x, _Camera_ZoomRange.y);
 
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, _PosY, Camera.main.transform.position.z);
         }
+
+        // Manage movement
+        Vector3 _MoveDirection = Vector3.zero;
+        if (Input.GetKey(KeyCode.A))
+            _MoveDirection += Vector3.left;
+        if (Input.GetKey(KeyCode.D))
+            _MoveDirection += Vector3.right;
+        if (Input.GetKey(KeyCode.W))
+            _MoveDirection += Vector3.forward;
+        if (Input.GetKey(KeyCode.S))
+            _MoveDirection += Vector3.back;
+
+        if (_MoveDirection != Vector3.zero)
+            Camera.main.transform.position += _MoveDirection * _Camera_MoveSpeed * Time.deltaTime;
     }
 
     /// <summary>
