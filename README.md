@@ -3,7 +3,9 @@
 Generate a map with hexagonal tiles that can be updated via a noise map and several parameters to create biomes.
 
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/c793babc-2f9e-4735-bde3-9317dd7c9f65" width="600">
+    <video src="https://github.com/user-attachments/assets/c793babc-2f9e-4735-bde3-9317dd7c9f65" width="600" controls autoplay loop muted>
+        Your browser does not support the video tag.
+    </video>
 </p>
 
 ## **Examples of Maps**  
